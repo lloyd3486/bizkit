@@ -26,5 +26,18 @@ def search_users(args):
     """
 
     # Implement search here!
+    temp_users = []
 
-    return USERS
+    # Place matches in a temporary list if keys exist
+    temp_users.extend([x for x in USERS if "id" in args if x.get("id") == args["id"]])
+    temp_users.extend([x for x in USERS if "name" in args if args["name"].lower() in x.get("name").lower()])
+    temp_users.extend([x for x in USERS if "age" in args if
+                       int(args["age"]) + 1 >= int(x.get("age")) >= int(args["age"]) - 1])
+    temp_users.extend([x for x in USERS if "occupation" in args if
+                       args["occupation"].lower() in x.get("occupation").lower()])
+
+    # Remove duplicates from the temporary list
+    users_unique = []
+    [users_unique.append(x) for x in temp_users if x not in users_unique]
+
+    return users_unique
