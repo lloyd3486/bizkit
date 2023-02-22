@@ -37,7 +37,7 @@ def search_users(args):
                        args["occupation"].lower() in x.get("occupation").lower()])
 
     # Remove duplicates from the temporary list
-    users_unique = []
-    [users_unique.append(x) for x in temp_users if x not in users_unique]
+    unique_users = []
+    [unique_users.append(x) for x in temp_users if x not in unique_users]
 
-    return users_unique
+    return unique_users
