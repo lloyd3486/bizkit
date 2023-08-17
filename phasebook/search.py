@@ -26,7 +26,10 @@ def search_users(args):
     """
 
     # Implement search here!
-    temp_users = []
+    temp_users = []   
+
+    if "id" not in args and "name" not in args and "age" not in args and "occupation" not in args:
+        return USERS
 
     # Place matches in a temporary list if keys exist
     temp_users.extend([x for x in USERS if "id" in args if x.get("id") == args["id"]])
