@@ -22,5 +22,5 @@ def schedule(user_id):
     sched = f"{request.form.get('start')} - {request.form.get('end')}"
     SCHEDULES[x]["schedules"].append(sched)
 
-    return SCHEDULES
+    return SCHEDULES[x]
 
